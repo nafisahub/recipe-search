@@ -4,10 +4,10 @@ import requests
 
 def recipe_search(ingredient):
 
-    # Register to get an APP ID and key https://developer.edamam.com/
-
-    app_id = 'a1a50135'
-    app_key = 'e547bc0a24a23c6e93bb10a634585a11'
+# Register to get an APP ID and key https://developer.edamam.com/
+    import os
+    app_id = os.environ.get("APP_ID")
+    app_key = os.environ.get("APP_KEY")
     result = requests.get('https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key))
 
     data = result.json()
